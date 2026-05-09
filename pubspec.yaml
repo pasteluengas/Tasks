@@ -1,0 +1,23 @@
+name: Tareas
+description: "Task manager, no bloat 'AI supermanager #productivity sync with Google premium version 50% off first month' shit"
+    
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  sqlite3: ^3.3.1
+  sqlite3_flutter_libs: ^0.5.0 # ESTO ES VITAL: Trae el motor SQLite para Android/iOS
+  path_provider: ^2.1.0        # Para encontrar las carpetas seguras en el móvil
+  path: ^1.8.0                 #
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+flutter:
+  uses-material-design: true
