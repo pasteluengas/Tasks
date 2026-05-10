@@ -1,4 +1,4 @@
-# Task
+# Tasks
 Task/To-Do application. No AI Google Account Sync Ad Premium Superfunctionality bloatslop: Just like it should be.
 ## Compilation
 Tested on Linux and Android
