@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.indigo,
           scaffoldBackgroundColor: Colors.black,
           colorScheme: const ColorScheme.dark(
-              primary: Colors.grey,
+              primary: Colors.white,
               surface: Colors.black,
               background: Colors.black,
             ),
@@ -60,6 +60,8 @@ class _MyHomePageState extends State<MyHomePage> {
 	final TextEditingController _controller = TextEditingController();
 	for (var  i in task_array) {
 		IconData icon0 = (i.name == "love" || i.name == "amar") ? Icons.favorite_border : Icons.delete_outline;//ListTile(title: Text(i.name), leading: Icon(Icons.check)
+		TextDecoration taskdecoration = (i.status == 1) ? TextDecoration.lineThrough : TextDecoration.none;
+		print("taskdecoration: $taskdecoration");
 		tmp_list.add(Row(
 			  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
 			  children: [
@@ -81,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
 			  	              
 			    Expanded(
 			    	child: DefaultTextStyle.merge(
-			    		style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
+			    		style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, decoration: taskdecoration),
 			    		child: Text(i.name),
 			    	)
 			    ),
@@ -100,14 +102,18 @@ class _MyHomePageState extends State<MyHomePage> {
 	}
   
     return Scaffold(
-      body: Center(
+      body: Padding (
+      	padding: EdgeInsets.only(top: 70),
         child: Column(
-          mainAxisAlignment: .center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 			// title
-			DefaultTextStyle.merge(
-				style: const TextStyle(fontSize: 38, fontWeight: FontWeight.normal),
-				child: const Center(child: Text('Tareas')),
+			Padding(
+				padding: const EdgeInsets.only(left: 20.0),
+				child: DefaultTextStyle.merge(
+								style: const TextStyle(fontSize: 38, fontWeight: FontWeight.w300),
+								child: Text('Tareas'),
+							)
 			),
 
 			// The rest
@@ -154,28 +160,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-
-      // a button
-      /*
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),*/
     );
   }
 }
-
-/*class task_list extends statelessWidget {
-	const task_list({super.key});
-	@override
-	Widget build(BuildContext context) {
-		var task_var_widget = Column(
-			mainAxisAlignment: .center,
-			children = [];
-		);
-
-		
-		return task_var_widget;
-	}
-}*/
